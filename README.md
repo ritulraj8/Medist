@@ -1,6 +1,6 @@
 # Med Assist - AI-Powered Medical Assistant
 
-A Next.js application that provides medical assistance through text-based chat and medical image analysis using Gemini AI and PyTorch.
+A Next.js application that provides medical assistance through text-based chat using Gemini AI .
 
 ## Features
 
