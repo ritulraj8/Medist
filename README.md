@@ -1,31 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Med Assist - AI-Powered Medical Assistant
+
+A Next.js application that provides medical assistance through text-based chat and medical image analysis using Gemini AI and PyTorch.
+
+## Features
+
+- **AI Chat Assistant**: Ask health-related questions and get helpful responses
+- **Medical Image Analysis**: Upload MRI scans and medical images for automated analysis
+- **Disease Detection**: Identify potential medical conditions from images:
+  - Alzheimer's Disease (stages: NonDemented, VeryMildDemented, MildDemented, ModerateDemented)
+  - Brain Tumor Detection
+  - Diabetic Retinopathy (stages: Healthy, Mild, Moderate, Severe, Proliferate)
+- **Detailed Explanations**: Get comprehensive information about detected conditions
+- **User Authentication**: Secure login and signup system
+- **Chat History**: View past conversations
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Google Gemini API Key**:
+   - Get your API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Add it to your `.env.local` file as `GEMINI_API_KEY=your_api_key_here`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Python Environment**:
+   - Python 3.8+ for the Flask server that handles image analysis
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Setup and Running
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Install Next.js dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Set up Flask server**:
+   ```bash
+   cd flask-server
+   pip install -r requirements.txt
+   ```
+
+3. **Add your PyTorch model**:
+   - Place your trained PyTorch model file (`model.pth`) in the `flask-server` directory
+   - The model should classify images into the 11 categories defined in the labels
+
+4. **Start the Flask server**:
+   ```bash
+   cd flask-server
+   python app.py
+   ```
+
+5. **Start the Next.js development server**:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+
+## How to Use
+
+1. **Login or Sign up** to access the application
+2. **Ask health-related questions** in the chat interface
+3. **Upload medical images** by clicking the paperclip icon:
+   - For MRI scans, the system will analyze for Alzheimer's or brain tumors
+   - For retinal images, the system will check for diabetic retinopathy
+   - The AI will provide a diagnosis and detailed explanation
+
+## Technologies Used
+
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: Next.js API Routes, Flask
+- **AI**: Google Gemini API, PyTorch
+- **Authentication**: NextAuth.js
+- **Database**: MongoDB
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Google Gemini API](https://ai.google.dev/docs)
+- [PyTorch](https://pytorch.org/docs/stable/index.html)
+- [Flask](https://flask.palletsprojects.com/)
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
