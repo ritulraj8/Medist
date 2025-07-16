@@ -5,12 +5,6 @@ A Next.js application that provides medical assistance through text-based chat a
 ## Features
 
 - **AI Chat Assistant**: Ask health-related questions and get helpful responses
-- **Medical Image Analysis**: Upload MRI scans and medical images for automated analysis
-- **Disease Detection**: Identify potential medical conditions from images:
-  - Alzheimer's Disease (stages: NonDemented, VeryMildDemented, MildDemented, ModerateDemented)
-  - Brain Tumor Detection
-  - Diabetic Retinopathy (stages: Healthy, Mild, Moderate, Severe, Proliferate)
-- **Detailed Explanations**: Get comprehensive information about detected conditions
 - **User Authentication**: Secure login and signup system
 - **Chat History**: View past conversations
 
@@ -38,36 +32,27 @@ A Next.js application that provides medical assistance through text-based chat a
    pip install -r requirements.txt
    ```
 
-3. **Add your PyTorch model**:
-   - Place your trained PyTorch model file (`model.pth`) in the `flask-server` directory
-   - The model should classify images into the 11 categories defined in the labels
-
-4. **Start the Flask server**:
+3. **Start the Flask server**:
    ```bash
    cd flask-server
    python app.py
    ```
-
-5. **Start the Next.js development server**:
+4. **Start the Next.js development server**:
    ```bash
    npm run dev
    ```
 
-6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
 ## How to Use
 
 1. **Login or Sign up** to access the application
 2. **Ask health-related questions** in the chat interface
-3. **Upload medical images** by clicking the paperclip icon:
-   - For MRI scans, the system will analyze for Alzheimer's or brain tumors
-   - For retinal images, the system will check for diabetic retinopathy
-   - The AI will provide a diagnosis and detailed explanation
 
 ## Technologies Used
 
 - **Frontend**: Next.js, React, Tailwind CSS
-- **Backend**: Next.js API Routes, Flask
+- **Backend**:  Flask
 - **AI**: Google Gemini API, PyTorch
 - **Authentication**: NextAuth.js
 - **Database**: MongoDB
